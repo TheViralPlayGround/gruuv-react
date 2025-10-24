@@ -92,7 +92,7 @@ export const SimpleDashboard: React.FC = () => {
 
         <Grid container spacing={3}>
           {achievements.map((achievement) => (
-            <Grid item xs={12} sm={6} md={4} key={achievement.id}>
+            <Grid key={achievement.id} xs={12} sm={6} md={4}>
               <Card>
                 <CardContent>
                   <Typography variant="h6" component="h2" gutterBottom>
