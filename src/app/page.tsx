@@ -3,8 +3,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
-import { LoginPage } from '@/pages/auth/LoginPage';
-import { DashboardPage } from '@/pages/dashboard/DashboardPage';
+import LoginPage from '@/pages/auth/LoginPage';
+import DashboardPage from '@/pages/dashboard/DashboardPage';
 
 export default function Home() {
   const { user, loading } = useAuth();

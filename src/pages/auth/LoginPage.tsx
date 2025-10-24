@@ -16,7 +16,7 @@ import { useAuth } from '@/context/AuthContext';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '@/services/firebase';
 
-export const LoginPage: React.FC = () => {
+const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSignUp, setIsSignUp] = useState(false);
@@ -178,3 +178,5 @@ export const LoginPage: React.FC = () => {
     </Container>
   );
 };
+
+export default LoginPage;

@@ -21,7 +21,7 @@ import {
 import { useAchievements } from '@/context/AchievementContext';
 import { Layout } from '@/components/layout/Layout';
 
-export const GraphPage: React.FC = () => {
+const GraphPage: React.FC = () => {
   const { achievements, loading } = useAchievements();
 
   // Transform achievements data for the chart
@@ -117,3 +117,5 @@ export const GraphPage: React.FC = () => {
     </Layout>
   );
 };
+
+export default GraphPage;

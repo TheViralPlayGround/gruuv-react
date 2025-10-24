@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Layout } from '@/components/layout/Layout';
 
-export const QuestPage: React.FC = () => {
+const QuestPage: React.FC = () => {
   // Placeholder quest data - you can expand this later
   const dailyQuests = [
     { id: 1, title: 'Complete 3 achievements', completed: false, progress: 1 },
@@ -75,3 +75,5 @@ export const QuestPage: React.FC = () => {
     </Layout>
   );
 };
+
+export default QuestPage;

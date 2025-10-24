@@ -30,7 +30,7 @@ import { useAchievements } from '@/context/AchievementContext';
 import { Layout } from '@/components/layout/Layout';
 import { CreateAchievement } from '@/types/achievement';
 
-export const DashboardPage: React.FC = () => {
+const DashboardPage: React.FC = () => {
   const { user } = useAuth();
   const { achievements, loading, error, addAchievement, updateEffort, deleteAchievement } = useAchievements();
   const [openDialog, setOpenDialog] = useState(false);
@@ -229,3 +229,5 @@ export const DashboardPage: React.FC = () => {
     </Layout>
   );
 };
+
+export default DashboardPage;
