@@ -5,7 +5,7 @@ import {
   Container,
   Typography,
   Button,
-  Grid,
+  Grid2 as Grid,
   Card,
   CardContent,
   CardActions,
