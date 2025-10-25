@@ -2,7 +2,7 @@
 
 import { CircularProgress, Box } from '@mui/material';
 import ClientOnly from '@/components/ClientOnly';
-import DashboardPage from '@/pages/dashboard/DashboardPage';
+import DashboardPage from '@/components/dashboard/DashboardPage';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';

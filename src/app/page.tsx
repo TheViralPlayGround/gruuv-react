@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { CircularProgress, Box } from '@mui/material';
 import ClientOnly from '@/components/ClientOnly';
-import LoginPage from '@/pages/auth/LoginPage';
-import DashboardPage from '@/pages/dashboard/DashboardPage';
+import LoginPage from '@/components/auth/LoginPage';
+import DashboardPage from '@/components/dashboard/DashboardPage';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';

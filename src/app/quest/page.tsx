@@ -2,7 +2,7 @@
 
 import { CircularProgress, Box } from '@mui/material';
 import ClientOnly from '@/components/ClientOnly';
-import QuestPage from '@/pages/quest/QuestPage';
+import QuestPage from '@/components/quest/QuestPage';
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
