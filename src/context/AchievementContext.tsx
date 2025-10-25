@@ -24,6 +24,7 @@ interface AchievementContextType {
   updateAchievement: (achievement: UpdateAchievement) => Promise<void>;
   deleteAchievement: (id: string) => Promise<void>;
   updateEffort: (id: string, effort: number) => Promise<void>;
+  getTodayEffort: (achievement: Achievement) => number;
 }
 
 const AchievementContext = createContext<AchievementContextType | undefined>(undefined);
@@ -39,6 +40,12 @@ export const useAchievements = () => {
 interface AchievementProviderProps {
   children: React.ReactNode;
 }
+
+// Helper function to get today's effort from effortHistory
+const getTodayEffort = (achievement: Achievement): number => {
+  const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
+  return achievement.effortHistory[today] || 0;
+};
 
 export const AchievementProvider: React.FC<AchievementProviderProps> = ({ children }) => {
   const [achievements, setAchievements] = useState<Achievement[]>([]);
@@ -165,6 +172,7 @@ export const AchievementProvider: React.FC<AchievementProviderProps> = ({ childr
     updateAchievement,
     deleteAchievement,
     updateEffort,
+    getTodayEffort,
   };
 
   return (

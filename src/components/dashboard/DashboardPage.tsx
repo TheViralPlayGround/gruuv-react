@@ -31,7 +31,7 @@ import { CreateAchievement } from '@/types/achievement';
 
 const DashboardPage: React.FC = () => {
   const { user } = useAuth();
-  const { achievements, loading, error, addAchievement, updateEffort, deleteAchievement } = useAchievements();
+  const { achievements, loading, error, addAchievement, updateEffort, deleteAchievement, getTodayEffort } = useAchievements();
   const [openDialog, setOpenDialog] = useState(false);
   const [editingAchievement, setEditingAchievement] = useState<string | null>(null);
   const [newAchievement, setNewAchievement] = useState<CreateAchievement>({
@@ -121,10 +121,10 @@ const DashboardPage: React.FC = () => {
                   
                   <Box sx={{ mt: 2 }}>
                     <Typography variant="body2" gutterBottom>
-                      Today's Effort: {achievement.effort}/10
+                      Today's Effort: {getTodayEffort(achievement)}/10
                     </Typography>
                     <Slider
-                      value={achievement.effort}
+                      value={getTodayEffort(achievement)}
                       onChange={(_, value) => handleEffortChange(achievement.id, value as number)}
                       min={0}
                       max={10}
