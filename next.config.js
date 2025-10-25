@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Disable static generation
-  staticPageGenerationTimeout: 1000,
-  // Force dynamic rendering
+  // Simple config - let's try without static export first
   trailingSlash: false,
 }
 
