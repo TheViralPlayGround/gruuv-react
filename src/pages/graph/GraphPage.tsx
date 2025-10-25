@@ -26,14 +26,14 @@ const GraphPage: React.FC = () => {
 
   // Transform achievements data for the chart
   const chartData = React.useMemo(() => {
-    const dataMap = new Map<string, Record<string, number>>();
+    const dataMap = new Map<string, Record<string, any>>();
     
     achievements.forEach(achievement => {
       Object.entries(achievement.effortHistory).forEach(([date, effort]) => {
         if (!dataMap.has(date)) {
           dataMap.set(date, { date });
         }
-        dataMap.get(date)![achievement.title] = effort;
+        dataMap.get(date)![achievement.title] = Number(effort);
       });
     });
 

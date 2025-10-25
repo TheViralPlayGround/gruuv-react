@@ -5,7 +5,6 @@ import {
   Container,
   Typography,
   Button,
-  Grid,
   Card,
   CardContent,
   CardActions,
@@ -99,10 +98,19 @@ const DashboardPage: React.FC = () => {
           </Alert>
         )}
 
-        <Grid container spacing={3}>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(3, 1fr)',
+            },
+            gap: 3,
+          }}
+        >
           {achievements.map((achievement) => (
-            <Grid item xs={12} sm={6} md={4} key={achievement.id}>
-              <Card>
+            <Card key={achievement.id}>
                 <CardContent>
                   <Typography variant="h6" component="h2" gutterBottom>
                     {achievement.title}
@@ -144,9 +152,8 @@ const DashboardPage: React.FC = () => {
                   </IconButton>
                 </CardActions>
               </Card>
-            </Grid>
           ))}
-        </Grid>
+        </Box>
 
         {achievements.length === 0 && (
           <Box textAlign="center" sx={{ mt: 4 }}>

@@ -5,7 +5,6 @@ import {
   Container,
   Typography,
   Button,
-  Grid2 as Grid,
   Card,
   CardContent,
   CardActions,
@@ -90,10 +89,19 @@ export const SimpleDashboard: React.FC = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={3}>
+        <Box
+          sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(3, 1fr)',
+            },
+            gap: 3,
+          }}
+        >
           {achievements.map((achievement) => (
-            <Grid key={achievement.id} xs={12} sm={6} md={4}>
-              <Card>
+            <Card key={achievement.id}>
                 <CardContent>
                   <Typography variant="h6" component="h2" gutterBottom>
                     {achievement.title}
@@ -135,9 +143,8 @@ export const SimpleDashboard: React.FC = () => {
                   </IconButton>
                 </CardActions>
               </Card>
-            </Grid>
           ))}
-        </Grid>
+        </Box>
 
         {achievements.length === 0 && (
           <Box textAlign="center" sx={{ mt: 4 }}>

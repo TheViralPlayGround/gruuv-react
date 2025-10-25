@@ -29,7 +29,7 @@ export const AppBottomNavigation: React.FC = () => {
 
   // Find current value based on pathname
   const currentValue = navigationItems.find(item => 
-    pathname.startsWith(item.path)
+    pathname?.startsWith(item.path)
   )?.path || '/dashboard';
 
   return (

@@ -1,6 +1,6 @@
 // Mock Firebase for development/testing without Firebase setup
 export const auth = {
-  currentUser: null,
+  currentUser: null as any,
   onAuthStateChanged: (callback: (user: any) => void) => {
     // Mock: no user logged in initially
     callback(null);
