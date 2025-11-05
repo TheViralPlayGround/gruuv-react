@@ -84,7 +84,7 @@ const DashboardPage: React.FC = () => {
     <Layout>
       <Container maxWidth="md">
         <Box sx={{ mb: 3 }}>
-          <Typography variant="h4" component="h1" gutterBottom>
+          <Typography variant="h4" component="h1" gutterBottom data-testid="gr-dashboard-text-welcome">
             Welcome back, {user?.displayName || user?.email}!
           </Typography>
           <Typography variant="subtitle1" color="text.secondary">
@@ -157,7 +157,7 @@ const DashboardPage: React.FC = () => {
 
         {achievements.length === 0 && (
           <Box textAlign="center" sx={{ mt: 4 }}>
-            <Typography variant="h6" color="text.secondary" gutterBottom>
+            <Typography variant="h6" color="text.secondary" gutterBottom data-testid="gr-dashboard-text-empty">
               No achievements yet
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -168,59 +168,65 @@ const DashboardPage: React.FC = () => {
 
         {/* Add Achievement Dialog */}
         <Dialog open={openDialog} onClose={() => setOpenDialog(false)} maxWidth="sm" fullWidth>
-          <DialogTitle>Add New Achievement</DialogTitle>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              label="Title"
-              fullWidth
-              variant="outlined"
-              value={newAchievement.title}
-              onChange={(e) => setNewAchievement({ ...newAchievement, title: e.target.value })}
-              sx={{ mb: 2 }}
-            />
-            <TextField
-              margin="dense"
-              label="Description"
-              fullWidth
-              multiline
-              rows={3}
-              variant="outlined"
-              value={newAchievement.description}
-              onChange={(e) => setNewAchievement({ ...newAchievement, description: e.target.value })}
-              sx={{ mb: 2 }}
-            />
-            <Box sx={{ mt: 2 }}>
-              <Typography variant="body2" gutterBottom>
-                Initial Effort Level: {newAchievement.effort}/10
-              </Typography>
-              <Slider
-                value={newAchievement.effort}
-                onChange={(_, value) => setNewAchievement({ ...newAchievement, effort: value as number })}
-                min={0}
-                max={10}
-                step={1}
-                marks
-                valueLabelDisplay="auto"
-                color="primary"
+          <Box data-testid="gr-achievement-modal-add">
+            <DialogTitle>Add New Achievement</DialogTitle>
+            <DialogContent>
+              <TextField
+                data-testid="gr-achievement-input-title"
+                autoFocus
+                margin="dense"
+                label="Title"
+                fullWidth
+                variant="outlined"
+                value={newAchievement.title}
+                onChange={(e) => setNewAchievement({ ...newAchievement, title: e.target.value })}
+                sx={{ mb: 2 }}
               />
-            </Box>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={() => setOpenDialog(false)}>Cancel</Button>
-            <Button 
-              onClick={handleAddAchievement}
-              variant="contained"
-              disabled={!newAchievement.title.trim()}
-            >
-              Add Achievement
-            </Button>
-          </DialogActions>
+              <TextField
+                data-testid="gr-achievement-input-desc"
+                margin="dense"
+                label="Description"
+                fullWidth
+                multiline
+                rows={3}
+                variant="outlined"
+                value={newAchievement.description}
+                onChange={(e) => setNewAchievement({ ...newAchievement, description: e.target.value })}
+                sx={{ mb: 2 }}
+              />
+              <Box sx={{ mt: 2 }}>
+                <Typography variant="body2" gutterBottom>
+                  Initial Effort Level: {newAchievement.effort}/10
+                </Typography>
+                <Slider
+                  value={newAchievement.effort}
+                  onChange={(_, value) => setNewAchievement({ ...newAchievement, effort: value as number })}
+                  min={0}
+                  max={10}
+                  step={1}
+                  marks
+                  valueLabelDisplay="auto"
+                  color="primary"
+                />
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={() => setOpenDialog(false)}>Cancel</Button>
+              <Button 
+                data-testid="gr-achievement-btn-add"
+                onClick={handleAddAchievement}
+                variant="contained"
+                disabled={!newAchievement.title.trim()}
+              >
+                Add Achievement
+              </Button>
+            </DialogActions>
+          </Box>
         </Dialog>
 
         {/* Floating Action Button */}
         <Fab
+          data-testid="gr-dashboard-btn-add"
           color="primary"
           aria-label="add"
           sx={{

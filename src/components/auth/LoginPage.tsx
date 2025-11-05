@@ -79,6 +79,7 @@ const LoginPage: React.FC = () => {
             align="center"
             color="primary"
             sx={{ fontWeight: 'bold' }}
+            data-testid="gr-login-logo"
           >
             Gruuv
           </Typography>
@@ -89,12 +90,13 @@ const LoginPage: React.FC = () => {
             gutterBottom
             align="center"
             color="text.secondary"
+            data-testid="gr-login-subtitle"
           >
             {isSignUp ? 'Create Account' : 'Welcome Back'}
           </Typography>
 
           {error && (
-            <Alert severity="error" sx={{ mb: 2 }}>
+            <Alert severity="error" sx={{ mb: 2 }} data-testid="gr-login-error">
               {error}
             </Alert>
           )}
@@ -113,6 +115,7 @@ const LoginPage: React.FC = () => {
 
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
             <TextField
+              data-testid="gr-login-input-email"
               fullWidth
               label="Email"
               type="email"
@@ -124,6 +127,7 @@ const LoginPage: React.FC = () => {
             />
             
             <TextField
+              data-testid="gr-login-input-password"
               fullWidth
               label="Password"
               type="password"
@@ -135,6 +139,7 @@ const LoginPage: React.FC = () => {
             />
 
             <Button
+              data-testid={isSignUp ? 'gr-login-btn-signup' : 'gr-login-btn-signin'}
               type="submit"
               fullWidth
               variant="contained"
@@ -162,6 +167,7 @@ const LoginPage: React.FC = () => {
             )}
 
             <Button
+              data-testid={isSignUp ? 'gr-login-link-signin' : 'gr-login-link-signup'}
               fullWidth
               variant="text"
               onClick={() => setIsSignUp(!isSignUp)}

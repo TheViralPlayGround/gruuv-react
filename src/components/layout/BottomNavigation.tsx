@@ -54,6 +54,7 @@ export const AppBottomNavigation: React.FC = () => {
             label={item.label}
             value={item.path}
             icon={item.icon}
+            data-testid={item.path === '/graph' ? 'gr-dashboard-btn-charts' : undefined}
             sx={{
               color: 'white',
               '&.Mui-selected': {

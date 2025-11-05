@@ -63,7 +63,7 @@ const GraphPage: React.FC = () => {
     <Layout>
       <Container maxWidth="lg">
         <Box sx={{ mb: 3 }}>
-          <Typography variant="h4" component="h1" gutterBottom>
+          <Typography variant="h4" component="h1" gutterBottom data-testid="gr-chart-text-title">
             Progress Overview
           </Typography>
           <Typography variant="subtitle1" color="text.secondary">
@@ -74,7 +74,7 @@ const GraphPage: React.FC = () => {
         <Card>
           <CardContent>
             {chartData.length > 0 ? (
-              <Box sx={{ height: 400 }}>
+              <Box sx={{ height: 400 }} data-testid="gr-chart-canvas-weekly">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" />
